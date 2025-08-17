@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Insurance Policy Calculator</h2>
+            <form method="post" asp-action="Calculate">
+                <div class="form-group">
+                    <label for="Number1">Number 1</label>
+                    <input type="number" class="form-control" id="Number1" name="Number1" required />
+                </div>
+                <div class="form-group">
+                    <label for="Number2">Number 2</label>
+                    <input type="number" class="form-control" id="Number2" name="Number2" required />
+                </div>
+                <div class="form-group">
+                    <label for="Operation">Operation</label>
+                    <select class="form-control" id="Operation" name="Operation" required>
+                        <option value="+">Addition (+)</option>
+                        <option value="-">Subtraction (-)</option>
+                        <option value="*">Multiplication (*)</option>
+                        <option value="%">Modulus (%)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Calculate</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+                    @if (ViewBag.Result != null)
+{
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <h3 class="text-center">Result</h3>
+            <div class="alert alert-info text-center">
+                @ViewBag.Result
+            </div>
+        </div>
+    </div>
+}
